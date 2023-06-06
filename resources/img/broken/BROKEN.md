@@ -1,0 +1,1 @@
+# This folder is used to save broken MRI images to be used in the program to proceess
