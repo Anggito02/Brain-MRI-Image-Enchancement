@@ -2,9 +2,31 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image
 
+import subprocess
 import sys
+import os
+
+# Get the parent directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(script_dir)
+
+# Add the parent directory to the Python path
+sys.path.append(parent_dir)
 
 from WindowTemplate import InitWindow
+from image_processing.enhancement import ImageProcessor
+
+def process_image(file_location: str):
+    # Enhance image
+    processor = ImageProcessor(file_location)
+    img = processor.process()
+    save_location = processor.save(img)
+
+    # open new window
+    subprocess.run(["python", "views\\output.py", save_location])
+
+    # close current window
+    root_window.get_window().destroy()
 
 def resize_image(image_path, new_size):
     img = Image.open(image_path)
@@ -30,7 +52,7 @@ def show_window(root_window: Tk, window_size: tuple, file_location: str):
     lbl_image.image = img
 
     # Create button
-    btn_process = ttk.Button(root_window, text="Process", width=20)
+    btn_process = ttk.Button(root_window, text="Process", width=20, command=lambda: process_image(file_location))
 
     # Set button in the bottom
     btn_process.place(x=center_x, y=window_size[1] - 50, anchor="center")
