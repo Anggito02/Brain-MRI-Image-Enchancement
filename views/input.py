@@ -9,11 +9,11 @@ from WindowTemplate import InitWindow
 def select_image():
     file_path = filedialog.askopenfilename(filetypes=[("Image files", "*.png")])
 
-    # open new window
-    subprocess.run(["python", "views\\image.py", file_path])
-
     # close current window
     root_window.get_window().destroy()
+
+    # open new window
+    subprocess.run(["python", "views\\image.py", file_path])
 
 def show_window(root_window: Tk, window_size: tuple):
 

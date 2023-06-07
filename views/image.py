@@ -22,11 +22,11 @@ def process_image(file_location: str):
     img = processor.process()
     save_location = processor.save(img)
 
-    # open new window
-    subprocess.run(["python", "views\\output.py", save_location])
-
     # close current window
     root_window.get_window().destroy()
+    
+    # open new window
+    subprocess.run(["python", "views\\output.py", save_location])
 
 def resize_image(image_path, new_size):
     img = Image.open(image_path)
