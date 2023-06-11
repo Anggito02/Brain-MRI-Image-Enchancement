@@ -1,7 +1,6 @@
 # How to Use Program
 
- 1. Input image dengan menekan tombol **Input** pada GUI.
- 2. Tekan tombol **Play** setelah memasukan gambar untuk diproses oleh program.
- 3. Tunggu proses perbaikan gambar oleh program.
- 4. GUI akan menampilkan gambar yang telah diproses.
- 5. Tekan tombol **Save** untuk menyimpan hasil gambar ke dalam penyimpanan lokal.
+ 1. Run input.py
+ 2. Input image dengan menekan tombol **Input MRI Image** pada GUI dan masukan gambar yang ada dalam folder resources/img/broken.
+ 3. Tekan tombol **Process** setelah memasukan gambar untuk diproses oleh program.
+ 4. GUI akan menampilkan gambar yang telah diproses dan otomatis menyimpan gambar didalam folder resources/img/enhanced.
